@@ -20,7 +20,7 @@
 
   <label for="profession">Professions :</label>
   <select id="profession" name="profession" >
-        <option value=""> -- </option>
+        <option value="none"> -- </option>
         <option value="agriculteur">Agriculteur exploitant </option>
         <option value="artisan"> Artisan </option>
         <option value="commercant"> Commercant et assimilé </option>
@@ -82,10 +82,16 @@ Indiquez vos plats préférés (plusieurs choix possibles):
   console.log("Working");
 var verif = function(e){
   var nom = document.getElementById('nom').value;
+  var prof = document.getElementById('profession').value;
+
+  if(prof == "none" ) {
+    console.log('Ajouter une profession');
+  }
 
   if(nom == ""){
     console.log("Ajouter un nom !")
   }
+
 }
 
 </script>
