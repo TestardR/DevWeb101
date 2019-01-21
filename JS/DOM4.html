@@ -17,8 +17,8 @@
   // Produit Constructor
   var Produit = function(id, designation, prix) {
     this.id = id;
-    this.prix = prix;
     this.designation = designation;
+    this.prix = prix;
     this.toString = function() {
       return designation + ' ' + prix;
     };
@@ -29,6 +29,8 @@
   catalogue.push(new Produit(1, 'ordinateur', 400));
   catalogue.push(new Produit(2, 'souris', 20));
   catalogue.push(new Produit(3, 'clavier', 30));
+
+  var panier = [];
 
   // Add Produit to catalogue array
   var remplirCatalogue = function() {
@@ -60,6 +62,7 @@
 
   function ajouter() {
     var cat = document.getElementById('cat');
+    // Indice de l'option sélectionnée
     var sel = cat.options[cat.selectedIndex].value;
     // console.log(sel);
     var prod = catalogue[sel];
@@ -73,6 +76,4 @@
   }
 
   remplirCatalogue();
-
-  var panier = [];
 </script>
