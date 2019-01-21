@@ -6,17 +6,13 @@
   <label for="mail">Mail</label> <input type="text" name="mail" id="mail" />
   <br />
 
-  <p>Avez-vous des enfants ?
-  <input type="radio" name="enfant" id="enfant" value="oui" />
-  <label for="enfant">Oui</label
-  ><input
-    type="radio"
-    name="pasenfant"
-    id="enfant
-  checked"
-    value="non"
-  />
-  <label for="pasenfant">Non</label></br></p>
+  <p>Avez vous des enfants ? <br/>
+    <input type="radio" name="enfant" value="oui" id="enfant">
+    <label for="enfant"> Oui</label>
+     <input type="radio" name="enfant" value="non" id="pasenfant checked">
+     <label for="pasenfant"> Non </label> </br>
+    </p> 
+
 
   <label for="profession">Professions :</label>
   <select id="profession" name="profession" >
@@ -92,6 +88,7 @@ var verif = function(e){
     console.log("Ajouter un nom !")
   }
 
+  console.log()
 }
 
 </script>
