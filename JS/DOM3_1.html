@@ -77,45 +77,24 @@ Indiquez vos plats préférés (plusieurs choix possibles):
 <script>
   console.log("Working");
 var verif = function(e){
-  var form = document.getElementById("form");
+    var nom = document.getElementById("nom");
+    var m1 = document.createElement("div");
+    var deja = false;
 
-  var nom = document.getElementById('nom').value;
-  var m1 = document.createElement('strong');
-  var deja= false;
-
-  var enfant = form.enfant.value;
-
-  var prof = document.getElementById('profession').value;
-
-  var sports = document.getElementsByClassName('activites[]');
-  var sport = "";
-
-  var plats = document.getElementById("plats");
-
-  if(nom == ""){
-    console.log("Ajouter un nom !")
-  }
-  
-  if(prof == "none" ) {
-    console.log('Ajouter une profession');
-  }
-  
-  for(var i=0; i< sports.length; i++) {
-    if( sports[i].checked === true) {
-      sport += sports[i].value + " ";
+    if (nom.nextSibling.innerHTML == "entrez votre nom !") {
+        deja = true;
     }
-  }
+    
+    if (nom.value == "" && !deja) {
+        nom.parentNode.insertBefore(m1, nom.nextSibling);
+        var text = document.createTextNode("entrez votre nom !");
+        m1.appendChild(text);
+    }
 
-  for (var i = 0; i < plats.selectedOptions.length; i++) {
-    console.log(plats.selectedOptions[i].value)
-  }
-
-  console.log(nom, enfant, sport);
-
-
-  
-
-
+    if (nom.value != "" && deja) {
+        nom.parentNode.removeChild(nom.nextSibling);
+        return true;
+    }
 
 }
 
