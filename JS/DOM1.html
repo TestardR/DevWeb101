@@ -1,0 +1,112 @@
+<h2>Exo1</h2>
+<label for="mois">Entrez un numéro de mois</label>
+<input type='text' id="mois"/>
+<button onclick="exo1()">Lancer</button>
+
+<script>
+var exo1 = function() {
+	var mois = parseInt(document.getElementById('mois').value);
+	if(mois > 12 || mois < 1) {
+		alert(mois+ "est un numero de mois incorrect");
+	}
+	else {
+		alert(mois + "correct");
+	}
+}
+</script>
+
+
+<h2>Exo2</h2>
+<label>Score joueur 1</label>
+<input type='text' id="score1"/>
+<label>Score joueur 2</label>
+<input type='text' id="score2"/>
+<button onclick="exo2()">Lancer</button>
+
+<script>
+var exo2 = function() {
+	var sj1 = parseInt(document.getElementById('score1').value);
+	var sj2 = parseInt(document.getElementById('score2').value);
+	if(sj1 > sj2) {
+		console.log('Joueur 1 a gagné avec un score de ' + sj1);
+	} else if (sj1 == sj2) {
+		console.log('Il y a égalité !');
+	} else {
+		console.log('Joueur 2 a gagné avec un score de ' + sj2)
+	}
+}
+</script>
+
+<h2>Exo3</h2>
+<label>Taille en cm</label>
+<input type='text' id="taille"/>
+<label>Age en années</label>
+<input type='text' id="age"/>
+<label>homme ou femme</label>
+<input type='text' id="sexe"/>
+<button onclick="exo3()">Lancer</button>
+
+<script>
+var exo3 = function() {
+	var taille = parseInt(document.getElementById('taille').value);
+	var age = parseInt(document.getElementById('age').value);
+	var sexe = document.getElementById('sexe').value;
+
+	if(sexe.toLowerCase() == 'homme') {
+		console.log((3*taille-250) * (age+270)/1200);
+	} else if (sexe.toLowerCase() == 'femme') {
+		console.log((taille/2 - 30) * (180+age)/200);
+	} else {
+		console.log('erreur de sexe');
+	}
+
+}
+</script>
+
+<h2>Exo4</h2>
+<label for="mois">Entrez des nombres separés par des espaces</label>
+<input type='text' id="num"/>
+<button onclick="exo4()">Lancer</button>
+
+<script>
+var exo4 = function() {
+	var num = document.getElementById('num').value;
+	var numArr = num.split(' ');
+	console.log(numArr);
+
+	var somme = 0;
+	var moyenne = 0;
+
+	for(var i = 0; i < numArr.length; i++) {
+		somme = somme + parseInt(numArr[i]);
+		moyenne = somme / (numArr.length);
+	}
+	console.log(somme);
+	console.log(moyenne);
+
+}
+</script>
+
+<h2>Exo5</h2>
+<label>Entrez une chaine</label>
+<input type='text' id="chaine"/>
+<label> Entrez un caractère</label>
+<input type='text' id="carac"/>
+<button onclick="exo5()">Lancer</button>
+
+<script>
+var exo5 = function() {
+	var chaine = document.getElementById('chaine').value;
+	var carac = document.getElementById('carac').value;
+	var result= "faux";
+	for(var i = 0; i < chaine.length; i++) {
+		if(chaine[i] == carac) {
+			result = "vrai";
+		} 
+
+	}
+	console.log(result)
+	
+	
+}
+</script>

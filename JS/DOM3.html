@@ -1,0 +1,91 @@
+<h1>Sondage</h1>
+
+<form method="GET" onSubmit="event.preventDefault(); verif()">
+  <label for="nom">Nom</label> <input type="text" name="nom" id="nom" /> <br />
+
+  <label for="mail">Mail</label> <input type="text" name="mail" id="mail" />
+  <br />
+
+  <p>Avez-vous des enfants ?
+  <input type="radio" name="enfant" id="enfant" value="oui" />
+  <label for="enfant">Oui</label
+  ><input
+    type="radio"
+    name="pasenfant"
+    id="enfant
+  checked"
+    value="non"
+  />
+  <label for="pasenfant">Non</label></br></p>
+
+  <label for="profession">Professions :</label>
+  <select id="profession" name="profession" >
+        <option value=""> -- </option>
+        <option value="agriculteur">Agriculteur exploitant </option>
+        <option value="artisan"> Artisan </option>
+        <option value="commercant"> Commercant et assimilé </option>
+        <option value="chef"> Chef d'entreprise</option>
+        <option value="liberal">Profession libérale et assimilé </option>
+        <option value="cadre publique">Cadre de la fonction publique, profession intellectuelle et artistique</option>
+        <option value="cadre">Cadre d'entreprise</option>
+      <option value="intermédiaire">Profession intermédiaire de l'enseignement, de la
+        santé, de la fonction publique et assimilé</option>
+        <option> Technicien</option>
+        <option value="contrmaitre">Contremaître, agent de maîtrise</option>
+        <option value="employe publique">Employé de la foncion publique</option>
+        <option value="employe prive">Employé administratif d'entreprise</option>
+        <option value="employe commerce">Employé de commerce</option>
+        <option value="ouvrier">Ouvrier</option>
+        <option value="retrait"> Retraité</option>
+        <option value="autre">autre </option>
+      </select>
+
+  <p>Activités sportives pratiquées (plusieurs réponses possibles):</p>
+  <input type="checkbox" name="activites[]" id="gym" value="gym">
+<label for="gym">Gymnastique</label>
+  <input type="checkbox" name="activites[]" id="judo" value="judo">
+<label for="judo">Judo</label>
+  <input type="checkbox" name="activites[]" id="karate" value="karate">
+<label for="karate">Karaté</label>
+  <input type="checkbox" name="activites[]" id="natation" value="natation">
+<label for="natation">Natation</label>
+  <input type="checkbox" name="activites[]" id="ski" value="ski">
+<label for="ski">Ski</label>
+  <input type="checkbox" name="activites[]" id="autre" value="autre">
+<label for="autre">Autre</label>
+
+
+<p>
+Indiquez vos plats préférés (plusieurs choix possibles): 
+<br/>
+<select id="plats" name="plats[]" multiple="multiple" size="5">
+    <option>Daube</option>
+    <option>Poisson</option>
+    <option>Couscou</option>
+    <option>Haggis</option>
+    <option>Cassoulet</option>
+    <option value="grenouillle">Cuisse de grenouilles</option>
+    <option>Quenelle de Veau </option>
+    <option>Paella</option>
+   <option>Tartiflette</option>
+   <option>Carottes rapéés</option>
+    <option>Bouillabaisse</option>
+</select>
+</p>
+
+<br/>
+<input type="submit" value="Valider" />
+
+</form>
+
+<script>
+  console.log("Working");
+var verif = function(e){
+  var nom = document.getElementById('nom').value;
+
+  if(nom == ""){
+    console.log("Ajouter un nom !")
+  }
+}
+
+</script>
