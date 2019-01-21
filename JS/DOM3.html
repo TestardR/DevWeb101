@@ -1,6 +1,6 @@
 <h1>Sondage</h1>
 
-<form method="GET" onSubmit="event.preventDefault(); verif()">
+<form id="form" onSubmit="event.preventDefault(); verif()">
   <label for="nom">Nom</label> <input type="text" name="nom" id="nom" /> <br />
 
   <label for="mail">Mail</label> <input type="text" name="mail" id="mail" />
@@ -37,35 +37,35 @@
       </select>
 
   <p>Activités sportives pratiquées (plusieurs réponses possibles):</p>
-  <input type="checkbox" name="activites[]" id="gym" value="gym">
+  <input type="checkbox" class="activites[]" id="gym" value="gym">
 <label for="gym">Gymnastique</label>
-  <input type="checkbox" name="activites[]" id="judo" value="judo">
+  <input type="checkbox" class="activites[]" id="judo" value="judo">
 <label for="judo">Judo</label>
-  <input type="checkbox" name="activites[]" id="karate" value="karate">
+  <input type="checkbox" class="activites[]" id="karate" value="karate">
 <label for="karate">Karaté</label>
-  <input type="checkbox" name="activites[]" id="natation" value="natation">
+  <input type="checkbox" class="activites[]" id="natation" value="natation">
 <label for="natation">Natation</label>
-  <input type="checkbox" name="activites[]" id="ski" value="ski">
+  <input type="checkbox" class="activites[]" id="ski" value="ski">
 <label for="ski">Ski</label>
-  <input type="checkbox" name="activites[]" id="autre" value="autre">
+  <input type="checkbox" class="activites[]" id="autre" value="autre">
 <label for="autre">Autre</label>
 
 
 <p>
 Indiquez vos plats préférés (plusieurs choix possibles): 
 <br/>
-<select id="plats" name="plats[]" multiple="multiple" size="5">
-    <option>Daube</option>
-    <option>Poisson</option>
-    <option>Couscou</option>
-    <option>Haggis</option>
-    <option>Cassoulet</option>
-    <option value="grenouillle">Cuisse de grenouilles</option>
-    <option>Quenelle de Veau </option>
-    <option>Paella</option>
-   <option>Tartiflette</option>
-   <option>Carottes rapéés</option>
-    <option>Bouillabaisse</option>
+<select id="plats" id='plats' name="plats[]" multiple="multiple" size="5">
+    <option value="Daube">Daube</option>
+    <option value="Poisson">Poisson</option>
+    <option value="Couscours">Couscou</option>
+    <option value="Haggis">Haggis</option>
+    <option value="Cassoulet">Cassoulet</option>
+    <option value="Grenouillle">Cuisse de grenouilles</option>
+    <option value="Quenelle">Quenelle de Veau </option>
+    <option value="Paella">Paella</option>
+   <option value="Tartiflette">Tartiflette</option>
+   <option value="Carottes">Carottes rapéés</option>
+    <option value="Bouillabaisse">Bouillabaisse</option>
 </select>
 </p>
 
@@ -77,18 +77,39 @@ Indiquez vos plats préférés (plusieurs choix possibles):
 <script>
   console.log("Working");
 var verif = function(e){
+  var form = document.getElementById("form");
   var nom = document.getElementById('nom').value;
+  var enfant = form.enfant.value;
   var prof = document.getElementById('profession').value;
-
-  if(prof == "none" ) {
-    console.log('Ajouter une profession');
-  }
+  var sports = document.getElementsByClassName('activites[]');
+  var sport = "";
+  var plats = document.getElementById("plats");
 
   if(nom == ""){
     console.log("Ajouter un nom !")
   }
+  
+  if(prof == "none" ) {
+    console.log('Ajouter une profession');
+  }
+  
+  for(var i=0; i< sports.length; i++) {
+    if( sports[i].checked === true) {
+      sport += sports[i].value + " ";
+    }
+  }
 
-  console.log()
+  for (var i = 0; i < plats.selectedOptions.length; i++) {
+    console.log(plats.selectedOptions[i].value)
+  }
+
+  console.log(nom, enfant, sport);
+
+
+  
+
+
+
 }
 
 </script>
