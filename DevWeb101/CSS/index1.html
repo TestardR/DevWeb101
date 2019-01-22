@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="charte.css" media="screen" />
+    <title>Les recettes simples</title>
+    <style>
+      table {
+        font-size: x-large;
+      }
+      td img {
+        height: 5em;
+      }
+
+      tr:nth-child(even) {
+        background-color: rgb(130, 40, 230);
+      }
+      tr:nth-child(odd) {
+        background-color: white;
+      }
+      .en-tete,
+      .bas-de-page {
+        background-color: #f0aaf0;
+        text-align: center;
+      }
+      .bas-de-page img {
+        height: 2em;
+      }
+      .bas-de-page p {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="en-tete">
+      <h1>Cuisine</h1>
+      <a href=".tout">Accueil</a>&gt;<a href=""><b>Recettes simples</b></a>
+    </div>
+    <table>
+      <caption>
+        Mes recettes simples
+      </caption>
+      <tr>
+        <td><img src="pizza.png" alt="une pizza" /></td>
+        <td><a href="pizza.html">Pizza</a></td>
+      </tr>
+      <tr>
+        <td><img src="saucisses-frites.png" alt="une saucice" /></td>
+        <td><a href="saucisses-frites.html">Saucisses frites</a></td>
+      </tr>
+      <tr>
+        <td><img src="sardines.png" alt="sardines" /></td>
+        <td><a href="sardines.html">Sardines</a></td>
+      </tr>
+      <tr>
+        <td><img src="oeuf.png" alt="oeuf" /></td>
+        <td><a href="oeuf.html">Œufs sur le plat</a></td>
+      </tr>
+      <tr>
+        <td><img src="ravioli.png" alt="ravioli" /></td>
+        <td><a href="ravioli.html">Ravioli</a></td>
+      </tr>
+    </table>
+
+    <div class="bas-de-page">
+      <p>
+        NFA016: <br />
+        <img src="logo_cnam.png" alt="le logo du cnam" />
+      </p>
+    </div>
+  </body>
+</html>
