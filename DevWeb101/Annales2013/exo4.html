@@ -1,0 +1,68 @@
+<form onsubmit="calculerPrix(); event.preventDefault();">
+  <p>numéro de table <input name="table" id="table" /></p>
+  <p>parfum</p>
+  <p>
+    <select
+      multiple="multiple"
+      name="parfum[]"
+      id="parfum"
+      onchange="nombredeParfum()"
+    >
+      <option value="chocolat">chocolat</option>
+      <option value="fraise">fraise</option>
+      <option value="vanille">vanille</option>
+      <option value="café">café</option>
+      <option value="pistache">pistache</option>
+      <option value="nougat">nougat</option>
+    </select>
+  </p>
+  <p>
+    options : chantilly
+    <input type="checkbox" id="chantilly" name="chantilly" value="chantilly" />
+  </p>
+  <p><input type="submit" value="commander" /></p>
+</form>
+<div id="prix"></div>
+<div id="erreurs" class="erreur">(ici, d'éventuels messages d'erreur)</div>
+
+<script>
+  var nombredeParfum = function() {
+    var parfums = document.getElementById('parfum');
+    var n = 0;
+    for (var i = 0; i < parfums.options.length; i++) {
+      if (parfums.options[i].selected) {
+        n++;
+      }
+    }
+    return n;
+  };
+
+  var verif = function() {
+    var msg = '';
+    var table = document.getElementById('table').value;
+    if (isNaN(table) === true) {
+      msg += 'numéro de table incorrect';
+    }
+    if (parseInt(table) < 1 || parseInt(table) > 20) {
+      msg += 'numéro de table doit être entre 1 et 20';
+    }
+    console.log(msg);
+  };
+
+  var calculerPrix = function() {
+    var prix = 0;
+    var n = nombredeParfum();
+    if (n == 1) {
+      prix = 2;
+    } else if (n == 3) {
+      prix = 3;
+    } else {
+      prix = 3.5;
+    }
+    if (document.getElementById('chantilly').checked) {
+      prix = +1;
+    }
+    var prixDisplay = document.getElementById('prix');
+    prixDisplay.innerHTML = 'prix' + prix + 'euros';
+  };
+</script>

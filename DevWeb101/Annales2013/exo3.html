@@ -1,0 +1,24 @@
+<form action="rdv.php" method="post" onsubmit="return verifRdv()">
+  <p>
+    nom <input type="text" name="nom" id="nom" />
+    <span class="erreur" id="erreur_nom"></span>
+  </p>
+  <p>
+    heure début
+    <input type="text" name="h1" id="h1" onkeyup="afficheDuree()" /><span
+      class="erreur"
+      id="erreur_h1"
+    ></span>
+  </p>
+  <p>
+    heure fin
+    <input type="text" name="h2" id="h2" onkeyup="afficheDuree()" /><span
+      class="erreur"
+      id="erreur_h2"
+    ></span>
+  </p>
+  <p><input type="submit" /></p>
+</form>
+<p>Durée <span id="duree"> </span></p>
+
+<script></script>

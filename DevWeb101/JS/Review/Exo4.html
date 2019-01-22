@@ -1,0 +1,53 @@
+<body>
+  <select id="catalogue"> </select>
+
+  <button onclick="ajouter();">ajouter</button>
+
+  <table id="panier">
+    <tr>
+      <th>désignation</th>
+      <th>prix</th>
+    </tr>
+  </table>
+
+  <p>Total <span id="total">0</span></p>
+</body>
+
+<script>
+  // Produit Constructor
+  var Produit = function(id, designation, prix) {
+    this.id = id;
+    this.designation = designation;
+    this.prix = prix;
+    this.toString = function() {
+      return designation + ' ' + prix;
+    };
+  };
+
+  // Catalogue
+  var catalogue = [];
+  catalogue.push(new Produit(1, 'ordinateur', 400));
+  catalogue.push(new Produit(2, 'souris', 20));
+  catalogue.push(new Produit(3, 'clavier', 30));
+
+  // Add Produit to catalogue array
+  var remplirCatalogue = function() {
+    var cat = document.getElementById('catalogue');
+    for (var i in catalogue) {
+      var e = document.createElement('option');
+      e.value = i;
+      var txt = document.createTextNode(catalogue[i].designation);
+      e.appendChild(txt);
+      cat.appendChild(e);
+    }
+  };
+
+  // Add row for each product
+  function ajouterCase(parent, txt) {
+    var e = document.createElement('td');
+    e.appendChild(document.createTextNode(txt));
+    parent.appendChild(e);
+  }
+
+  remplirCatalogue();
+</script>
