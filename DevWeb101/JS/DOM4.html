@@ -1,0 +1,79 @@
+<body>
+  <select id="cat"> </select>
+
+  <button onclick="ajouter();">ajouter</button>
+
+  <table id="pan">
+    <tr>
+      <th>désignation</th>
+      <th>prix</th>
+    </tr>
+  </table>
+
+  <p>Total <span id="tot">0</span></p>
+</body>
+
+<script>
+  // Produit Constructor
+  var Produit = function(id, designation, prix) {
+    this.id = id;
+    this.designation = designation;
+    this.prix = prix;
+    this.toString = function() {
+      return designation + ' ' + prix;
+    };
+  };
+
+  // Catalogue
+  var catalogue = [];
+  catalogue.push(new Produit(1, 'ordinateur', 400));
+  catalogue.push(new Produit(2, 'souris', 20));
+  catalogue.push(new Produit(3, 'clavier', 30));
+
+  var panier = [];
+
+  // Add Produit to catalogue array
+  var remplirCatalogue = function() {
+    var cat = document.getElementById('cat');
+    for (var i in catalogue) {
+      var e = document.createElement('option');
+      e.value = i;
+      var txt = document.createTextNode(catalogue[i].designation);
+      e.appendChild(txt);
+      cat.appendChild(e);
+    }
+  };
+
+  // Add row for each product
+  function ajouterCase(parent, txt) {
+    var e = document.createElement('td');
+    e.appendChild(document.createTextNode(txt));
+    parent.appendChild(e);
+  }
+
+  // Calculate Total
+  function calculerTotal() {
+    var total = 0;
+    for (var i in panier) {
+      total += panier[i].prix;
+    }
+    return total;
+  }
+
+  function ajouter() {
+    var cat = document.getElementById('cat');
+    // Indice de l'option sélectionnée
+    var sel = cat.options[cat.selectedIndex].value;
+    // console.log(sel);
+    var prod = catalogue[sel];
+    // console.log(prod);
+    panier.push(prod);
+    var ligne = document.createElement('tr');
+    ajouterCase(ligne, prod.designation);
+    ajouterCase(ligne, prod.prix);
+    document.getElementById('pan').appendChild(ligne);
+    document.getElementById('tot').innerHTML = calculerTotal();
+  }
+
+  remplirCatalogue();
+</script>

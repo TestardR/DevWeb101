@@ -1,0 +1,52 @@
+<input type="text" id="n1" /> x <input type="text" id="n2" /> =
+<input type="text" id="n3" /> <button onClick="multiply()">Multiplier</button>
+<p id="res">Result</p>
+<script>
+  var multiply = function() {
+    var n1 = document.querySelector('#n1').value;
+    var n2 = document.querySelector('#n2').value;
+    result = n1 * n2;
+    document.querySelector('#n3').value = result;
+    document.querySelector('#res').innerHTML = result;
+  };
+</script>
+
+<label for="prod">produit</label> <input value="" id="prod" type="text" />
+<label for="prix">prix</label> <input value="" id="prix" type="text" />
+<button onclick="ajouter()">ajouter</button>
+
+<p>liste des produits</p>
+
+<div id="liste"></div>
+<p>Total:<span id="total">0</span></p>
+<p>Moyenne:<span id="moyenne">0</span></p>
+
+<script>
+  var total = 0,
+    nb = 0,
+    liste = [];
+
+  var ajouter = function() {
+    var prod = document.querySelector('#prod').value;
+    var prix = document.querySelector('#prix').value;
+
+    liste.push(prod + ' : ' + prix);
+    total += parseInt(prix);
+    nb++;
+
+    var ProdDisplay = document.querySelector('#liste');
+    ProdDisplay.innerHTML = '';
+    var ProdDisplayActualisée = '';
+
+    for (var i = 0; i < liste.length; i++) {
+      ProdDisplayActualisée += liste[i] + '</br>';
+    }
+    ProdDisplay.innerHTML = ProdDisplayActualisée;
+
+    var TotalDisplay = document.querySelector('#total');
+    TotalDisplay.innerHTML = total;
+
+    var AvgDisplay = document.querySelector('#moyenne');
+    AvgDisplay.innerHTML = total / nb;
+  };
+</script>

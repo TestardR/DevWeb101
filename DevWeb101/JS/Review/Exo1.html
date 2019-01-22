@@ -1,0 +1,102 @@
+<p>mois : <input type="text" id="m1" /></p>
+<p><button onclick="verifMois()">Vérifier</button></p>
+
+<script>
+  var verifMois = function() {
+    mois = parseInt(document.querySelector('#m1').value);
+    if (isNaN(mois)) {
+      console.log('Entrez un nombre entre 1 et 12');
+    } else if (mois > 12 || mois < 1) {
+      console.log('Entre un nombre entre 1 et 12');
+    } else {
+      console.log(mois);
+    }
+  };
+</script>
+
+<span>Joueur 1 : </span> <input type="text" id="j1" /><br />
+<span>Joueur 2 : </span> <input type="text" id="j2" /><br />
+<button onclick="comparer()">Vérifier</button>
+
+<script>
+  var comparer = function() {
+    var j1 = parseInt(document.querySelector('#j1').value);
+    var j2 = parseInt(document.querySelector('#j2').value);
+
+    if (j1 == j2) {
+      console.log('égalité!');
+    } else if (j1 > j2) {
+      console.log('Joueur 1 a gagné!');
+    } else {
+      console.log('Joueur 2 a gagné!');
+    }
+  };
+</script>
+
+<p>nombres <input type="text" id="nbr" /></p>
+<p><button onclick="calculSomme()">vérifier</button></p>
+
+<script>
+  var calculSomme = function() {
+    var somme = 0;
+    var nbr = document.querySelector('#nbr').value;
+    var nbrArray = nbr.split(' ');
+    for (var i = 0; i < nbrArray.length; i++) {
+      somme += parseInt(nbrArray[i]);
+    }
+    console.log(somme);
+    moyenne = somme / nbrArray.length;
+    console.log(moyenne);
+  };
+</script>
+
+<p>String <input type="text" id="str" /></p>
+<p>Character <input type="text" id="s" /></p>
+<p><button onclick="compare()">comparer</button></p>
+
+<script>
+  var compare = function() {
+    var str = document.querySelector('#str').value;
+    var int = document.querySelector('#s').value;
+    var result = false;
+    var strArray = str.split('');
+    for (var i = 0; i < strArray.length; i++) {
+      if (int == strArray[i]) {
+        result = true;
+      }
+    }
+    console.log(result);
+  };
+</script>
+
+<p>nombres <input type="text" id="nb" /></p>
+<p><button onclick="calculPlateau()">vérifier</button></p>
+
+<script>
+  var calculPlateau = function() {
+    var nbr = document.querySelector('#nb').value;
+    console.log(nbr);
+    // var nbrArray = nbr.split('');
+
+    if (nbr.length == 0) {
+      console.log('pas de plateau!');
+    } else {
+      var max = 1;
+      var current = 1;
+      for (var i = 1; i < nbr.length; i++) {
+        if (nbr[i] == nbr[i - 1]) {
+          current++;
+        } else {
+          if (max < current) {
+            max = current;
+          }
+          current = 1;
+        }
+      }
+      if (max < current) {
+        max = current;
+      }
+      console.log('plateau max' + max);
+    }
+  };
+</script>
