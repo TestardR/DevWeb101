@@ -1,0 +1,82 @@
+<form onsubmit="event.preventDefault();">
+  <p>numéro de table <input name="table" id="table" /></p>
+  <p>parfum</p>
+  <p>
+    <select
+      multiple="multiple"
+      name="parfum[]"
+      id="parfum"
+      onchange="calculerPrix()"
+    >
+      <option value="chocolat">chocolat</option>
+      <option value="fraise">fraise</option>
+      <option value="vanille">vanille</option>
+      <option value="café">café</option>
+      <option value="pistache">pistache</option>
+      <option value="nougat">nougat</option>
+    </select>
+  </p>
+  <p>
+    options : chantilly
+    <input
+      type="checkbox"
+      id="chantilly"
+      name="chantilly"
+      value="chantilly"
+      onClick="calculerPrix()"
+    />
+  </p>
+  <p><input type="submit" value="commander" /></p>
+</form>
+<div id="prix"></div>
+<div id="erreurs" class="erreur">(ici, d'éventuels messages d'erreur)</div>
+
+<script>
+  var nombredeParfum = function() {
+    var parfums = document.querySelector('#parfum');
+    var n = 0;
+    for (var i = 0; i < parfums.options.length; i++) {
+      if (parfums.options[i].selected === true) {
+        n++;
+      }
+    }
+    return n;
+  };
+
+  var verif = function() {
+    var table = document.querySelector('#table');
+    var n = nombredeParfum();
+    var msg = '';
+    var erreurs = document.querySelector('#erreurs');
+    if (isNaN(table.value)) {
+      //   console.log('Table must be a number');
+      msg += 'Table must be a number ';
+    } else if (table.value > 20 || table.value < 1) {
+      //   console.log('Table must be between 1 and 20');
+      msg += 'Table must be between 1 and 20 ';
+    }
+    if (n < 1 || n > 3) {
+      //   console.log('n must be between 1 and 3');
+      msg += 'n must be between 1 and 3 ';
+    }
+    console.log(msg);
+    erreurs.innerHTML = msg;
+  };
+
+  var calculerPrix = function() {
+    var prix = 0;
+    var n = nombredeParfum();
+    var chant = document.querySelector('#chantilly');
+    if (n == 1) {
+      prix = 2;
+    } else if (n == 2) {
+      prix = 3;
+    } else if (n == 3) {
+      prix = 3.5;
+    }
+    if (chant.checked) {
+      prix += 1;
+    }
+    console.log(prix);
+  };
+</script>
