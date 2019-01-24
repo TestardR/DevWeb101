@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>exo 1 js</title>
+  </head>
+  <body>
+    <form onSubmit="verif(); event.preventDefault();">
+      <p>Ident :</p>
+      <input name="ident" id="ident" />
+      <p>Message :</p>
+      <textarea id="msg" name="msg"></textarea>
+      <p onClick="creerCheckList(['php', 'js', 'java'])" id="para">Tag</p>
+      <div id="tags"></div>
+      <input type="submit" />
+    </form>
+    <script>
+      var verif = function() {
+        var input = document.querySelector('#ident');
+        if (input.value === '') {
+          console.log('you need to give an input');
+          input.style.background = 'red';
+        }
+        var textarea = document.querySelector('#msg');
+        if (textarea.value === '') {
+          console.log('you need to give an textarea');
+          textarea.style.background = 'red';
+        }
+      };
+
+      //   var creerCheckTag = function() {
+      //     para.innerHTML = 'Ocalm';
+      //     var input = document.createElement('input');
+      //     input.setAttribute('type', 'checkbox');
+      //     input.setAttribute('name', 'tags[]');
+      //     input.setAttribute('value', 'ocaml');
+      //     para.appendChild(input);
+      //   };
+
+      var creerCheckTag = function() {
+        var input = '';
+        input =
+          '<p><input type="checkbox" name="tags[]" value="ocaml"/>ocaml</p>';
+        document.getElementById('para').innerHTML = input;
+      };
+
+      var creerCheckList = function(elements) {
+        var para = document.getElementById('para');
+        elements.forEach(element => {
+          input = `<input type="checkbox" name="tags[]" value="${element}"/>${element}</input>`;
+          para.innerHTML += input;
+        });
+      };
+    </script>
+  </body>
+</html>
