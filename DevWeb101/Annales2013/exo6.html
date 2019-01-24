@@ -44,11 +44,20 @@
         document.getElementById('para').innerHTML = input;
       };
 
+      var creerCheckList1 = function(elements) {
+        var para = document.getElementById('para');
+        elements.forEach(element => {
+          input = `<br/><input type="checkbox" name="tags[]" value="${element}"/>${element}</input><br/>`;
+          para.innerHTML += input;
+        });
+      };
+
       var creerCheckList = function(elements) {
         var para = document.getElementById('para');
         elements.forEach(element => {
-          input = `<input type="checkbox" name="tags[]" value="${element}"/>${element}</input>`;
-          para.innerHTML += input;
+          var input = document.createElement('input');
+          input.setAttribute('type', 'checkbox');
+          para.appendChild(input);
         });
       };
     </script>
