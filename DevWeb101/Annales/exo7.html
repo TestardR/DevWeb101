@@ -1,0 +1,36 @@
+
+
+<span>A</span><input type="text" id="na"></input></br>
+<span>B</span><input type="text" id="nb"></input></br>
+<span>C</span><input type="text" id="nc"></input></br>
+<button onClick="aireTriangle()">Calculer</button>
+<span id="error"></span>
+
+<script>
+    const demisomme = (a, b, c) => {
+      let result = (a + b + c) / 2;
+      return result;
+    };
+
+    const aireTriangle = () => {
+        let a = parseInt(document.querySelector("#na").value);
+        let b = parseInt(document.querySelector("#nb").value);
+        let c = parseInt(document.querySelector("#nc").value);
+        let s = demisomme(a, b, c);
+        
+
+        if (a >= s || b >= s || c >= s ) {
+           let msg = "Sorry must be inferior to a+b+c/2";
+           document.querySelector("#error").innerHTML = msg
+        }
+
+
+   
+        let r = (s * (s - a) * (s - b) * (s - c));
+        let result = Math.sqrt(r)
+
+        console.log(result)
+        
+
+    }
+  </script>
