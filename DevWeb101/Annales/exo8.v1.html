@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onClick="creerQuestion()">generer</button>
+  </body>
+
+  <script>
+    var questions = [
+      "Quelle est la couleur du cheval blanc d'Henri 4 ?",
+      'rouge',
+      'blanc',
+      'vert'
+    ];
+
+    function creerQuestion(t, tag) {
+      //   const question1 = questions[0];
+      //   console.log(question1);
+      let txt = '';
+      questions.forEach(question => {
+        txt = `<div>${question}</div>`;
+        // console.log(txt);
+        txtElt = document.createTextNode(txt);
+        var li = document.createElement('li');
+        li.appendChild(txtElt);
+        console.log(li);
+        generer(li);
+      });
+    }
+
+    const generer = e => {
+      let body = document.getElementsByTagName('body')[0];
+      body.appendChild(e);
+    };
+  </script>
+</html>

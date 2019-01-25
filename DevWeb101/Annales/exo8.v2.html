@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onClick="ecrireBlock()">generer</button>
+  </body>
+
+  <script>
+    var questions = [
+      [
+        "Quelle est la couleur du cheval blanc d'Henri 4 ?",
+        'rouge',
+        'blanc',
+        'vert'
+      ],
+      ['Combien font 2*3', '5', '6', '7'],
+      ["Qui a découvert l'amérique", 'moi', 'Christophe Colomb']
+    ];
+
+    function ecrireBlock() {
+      for (var i = 0; i < questions.length; i++) {
+        // console.log(questions[i]);
+        for (var j = 0; j < questions[i].length; j++) {
+          let questionBlock1 = `${questions[i][j]}`;
+          questionBlockElt = document.createTextNode(questionBlock);
+          var li = document.createElement('li');
+          li.append(questionBlockElt);
+          generer(li);
+        }
+      }
+    }
+
+    // function ecrireQuestion() {
+    //   for (var i = 0; i < questions.length; i++) {
+    //     console.log(questions[i][0]);
+    //     let question = `${questions[i][0]}`;
+    //     questionElt = document.createTextNode(question);
+    //     var li = document.createElement('li');
+    //     li.append(questionElt);
+    //   }
+    // }
+
+    // function ecrireQCM() {
+    //   for (var i = 0; i < questions.length; i++) {
+    //     // console.log(questions[i]);
+    //     var value = questions[i];
+
+    //     for (var j = 0; j < questions[i].length; j++) {
+    //       var answers = `${questions[i][j]}`;
+    //       answersElt = document.createTextNode(answers);
+    //       var li = document.createElement('li');
+    //       li.append(answersElt);
+    //       generer(li);
+    //     }
+    //   }
+    // }
+
+    // function creerQuestion() {
+    //   //   const question1 = questions[0];
+    //   //   console.log(question1);
+    //   for (var i = 0; i < questions.length; i++) {
+    //     questions[i].forEach(question => {
+    //       let txt = '';
+    //       txt = `${question}`;
+    //       //   console.log(txt);
+    //       txtElt = document.createTextNode(txt);
+    //       var li = document.createElement('li');
+    //       li.appendChild(txtElt);
+    //       //   console.log(li);
+    //       generer(li);
+    //     });
+    //   }
+    // }
+
+    const generer = e => {
+      let body = document.getElementsByTagName('body')[0];
+      body.appendChild(e);
+    };
+  </script>
+</html>
